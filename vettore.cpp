@@ -46,6 +46,7 @@ Vettore<T>::Vettore(u_int n, T& t):
  * template <class T>
  * Vettore<T>::Vettore(Iteratore& i);
 */
+
 template <class T>
 u_int Vettore<T>::size()const{return v_size;}
 
@@ -53,11 +54,27 @@ template <class T>
 typename Vettore<T>::Iteratore& Vettore<T>::end() const{return new typename Vettore<T>::Iteratore(info[v_size()], true);}
 
 template <class T>
-Vettore<T>::Iteratore& begin() const;
+Vettore<T>::Iteratore& begin() const{
+    
+}
 
 
 template <class T>
 void add(Iteratore& t);
 
 template <class T>
-Vettore<T>::T& remove(Iteratore& t);
+Vettore<T>::T& remove(Iteratore& t){
+    Vettore<T>::Iteratore it = begin();
+    while(it != t) it++;
+    return it;
+
+}
+
+template <class T>
+Vettore& merge(const Vettore& V){
+    T* aux= new T[v_size+v.v_size];
+    for(int i = 0; i< v_size; i++) aux[i]=punt[i];
+    for(i=0; i<v.v_size; i++) aux[v_size+i]=v.punt[i];
+    delete [] punt;
+    punt=aux;
+}
