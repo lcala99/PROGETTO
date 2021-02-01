@@ -48,6 +48,3 @@ void add(Iteratore& t);
 
 template <class T>
 T& remove(Iteratore& t);
-
-
-//ciao LUca
