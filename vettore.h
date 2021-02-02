@@ -60,7 +60,7 @@ class Vettore{
     T& remove2(T& value); //rimuove elemento con valore value
     T& pop_back(); //rimuove ultimo elemento
     bool empty(); //true se il vettore è vuoto
-    Vettore& merge(Vettore& v1, Vettore& v2);
+    Vettore& merge(Vettore& vec);
     bool operator==(Vettore& vec);
 };
 

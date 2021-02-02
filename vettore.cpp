@@ -2,6 +2,7 @@
 #include <math.h>
 typedef unsigned int u_int;
 
+/*
 template <class T>
 Vettore<T>::Iteratore::Iteratore(T* p, u_int s, u_int c): size(s), cap(c),past_the_end(false) {
     T* arr = new T[c];
@@ -40,7 +41,7 @@ Vettore<T>::Vettore(u_int n, T& t):
 /*
  * template <class T>
  * Vettore<T>::Vettore(Iteratore& i);
-*/
+
 
 template <class T>
 u_int Vettore<T>::size()const{return v_size;}
@@ -65,12 +66,100 @@ Vettore<T>::T& remove(Iteratore& t){
     size--; //perchè tolgo un valore
     return it; //ritorno quello che ho tolto
 }
+*/
+
+//              METODI ITERATORE
+Vettore<T>::Iteratore::Iteratore(Vettore<T> v, u_int ind=0);
+//Iteratore(T* p, u_int s, u_int c);
+static Vettore<T>:Iteratore Vettore<T>::Iteratore::clone(const Iteratore& it);
+Vettore<T>::Iteratore::Iteratore(Iteratore& it);
+Vettore<T>::Iteratore::~Iteratore();
+//overloading operatori
+Iteratore& operator++();
+Iteratore& operator--();
+T& operator*() const;
+T& operator->() const;
+T& operator[](u_int ind) const;
+bool operator!=(const Iteratore& it) const;
+bool operator==(const Iteratore& it) const;
+
+
+
+//              METODI VETTORE
+template <class T>
+Vettore<T>::Vettore(){
+
+}
 
 template <class T>
-Vettore& merge(const Vettore& V){
-    T* aux= new T[v_size+v.v_size];
+Vettore<T>::Vettore(u_int n, T& t){
+
+}
+
+template <class T>
+Vettore<T>::Vettore(Iteratore& i){ //forse non ci serve
+}
+
+template <class T>
+Vettore<T>::Vettore(Vettore& vec){
+
+}
+
+template <class T>
+Vettore<T>::Iteratore& Vettore<T>::begin() const{
+
+}
+
+template <class T>
+Vettore<T>::Iteratore& Vettore<T>::end()const{
+
+}
+
+template <class T>
+u_int Vettore<T>::size() const{
+
+}
+
+template <class T>
+void Vettore<T>::push_back(T& val){
+
+}
+
+template <class T>
+void Vettore<T>::insert(Iteratore& it, T& val){
+
+}
+
+template <class T>
+T& Vettore<T>::remove(Iteratore& it){
+
+}
+
+template <class T>
+T& Vettore<T>::remove2(T& value){
+
+}
+
+template <class T>
+T& Vettore<T>::pop_back(){
+
+}
+
+template <class T>
+bool Vettore<T>::empty(){ //true se il vettore è vuoto
+    if(size=0) return true;
+}
+
+template <class T>
+Vettore<T>::Vettore& merge(Vettore<T>::Vettore& vec){
+    T* aux= new T[v_size+vec.size];
     for(int i = 0; i< v_size; i++) aux[i]=punt[i];
     for(i=0; i<v.v_size; i++) aux[v_size+i]=v.punt[i];
     delete [] punt;
     punt=aux;
+}
+
+template <class T>
+bool Vettore<T>::operator==(Vettore& vec){
+
 }
