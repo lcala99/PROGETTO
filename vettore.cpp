@@ -17,12 +17,7 @@ typename Vettore<T>::Iteratore Vettore<T>::Iteratore::clone(const Iteratore& it)
 }
 
 template<class T>
-Vettore<T>::Iteratore::Iteratore(Iteratore& it):past_the_end(false){
-    this=clone(it);
-}
-
-template<class T>
-Vettore<T>::Iteratore::Iteratore(Iteratore& it,bool pte):past_the_end(pte){
+Vettore<T>::Iteratore::Iteratore(Iteratore& it,bool pte=false):past_the_end(pte){
     this=clone(it);
 }
 template <class T>
@@ -66,7 +61,9 @@ template <class T>
 Vettore<T>::T& remove(Iteratore& t){
     Vettore<T>::Iteratore it = begin();
     while(it != t) it++;
-    return it;
+    Vettore<T>::Iteratore aux=it+1;
+    size--; //perchè tolgo un valore
+    return it; //ritorno quello che ho tolto
 }
 
 template <class T>
