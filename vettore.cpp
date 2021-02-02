@@ -39,7 +39,7 @@ template <class T>
 Vettore<T>::Vettore(u_int n, T& t):
     info( n == 0 ? nullptr : new T[n]), v_size(n), capacity(n){
 
-    for(int i = 0; i < v_size; i++)vec[i]=t;
+    for(int i = 0; i < v_size; i++)info[i]=t;
 }
 
 /*
@@ -55,9 +55,9 @@ typename Vettore<T>::Iteratore& Vettore<T>::end() const{return new typename Vett
 
 template <class T>
 Vettore<T>::Iteratore& begin() const{
-    
+    Vettore<T>::Iteratore it.punt = info;
+    return it;
 }
-
 
 template <class T>
 void add(Iteratore& t);
@@ -67,7 +67,6 @@ Vettore<T>::T& remove(Iteratore& t){
     Vettore<T>::Iteratore it = begin();
     while(it != t) it++;
     return it;
-
 }
 
 template <class T>
