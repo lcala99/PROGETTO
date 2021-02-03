@@ -18,17 +18,15 @@ class Vettore{
     friend class Iteratore;
     private:
         T* info;
-        u_int v_size;
+        u_int size;
         u_int capacity;
     public:
         class Iteratore{
             friend class Vettore<T>;
-        //friend Vettore<T>::Iteratore Vettore<T>::Iteratore::clone(const Iteratore& it);
+            //friend Vettore<T>::Iteratore Vettore<T>::Iteratore::clone(const Iteratore& it);
             private:
-                T* punt;
-                u_int i_size;
+                Vettore<T>* punt;
                 u_int index;
-                bool past_the_end;
             public:
             //iteratore constructor
             Iteratore(Vettore<T> v, u_int ind=0);
@@ -39,7 +37,7 @@ class Vettore{
             //overloading operatori
             Iteratore& operator++();
             Iteratore& operator--();
-            T& operator*();
+            const T& operator*() const;
             T& operator->();
             T& operator[](u_int ind);
             bool operator!=(const Iteratore& it) const;

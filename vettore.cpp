@@ -77,7 +77,7 @@ Vettore<T>::Iteratore::Iteratore(Vettore<T> v, u_int ind=0){
 //Iteratore(T* p, u_int s, u_int c);
 
 template <class T>
-static Vettore<T>::Iteratore Vettore<T>::Iteratore::clone(const Iteratore& it){
+Vettore<T>::Iteratore Vettore<T>::Iteratore::clone(const Iteratore& it){
 
 }
 
@@ -94,37 +94,39 @@ Vettore<T>::Iteratore::~Iteratore(){
 //overloading operatori
 template <class T>
 typename Vettore<T>::Iteratore& Vettore<T>::Iteratore::operator++(){
-
+    if(punt) index++;
 }
 
 template <class T>
 typename Vettore<T>::Iteratore& Vettore<T>::Iteratore::operator--(){
+    if(punt) index--;
+}
 
+/*          BOH IN STI TRE MI DA ERRORE su operator nella firma
+template <class T>
+typename Vettore<T>::T& Vettore<T>::Iteratore::operator*() const{
+    return *punt;
 }
 
 template <class T>
-typename Vettore<T>::T& Vettore<T>::Iteratore::operator*(){
-
+typename Vettore<T>::T& Vettore<T>::Iteratore::operator->() const {
+    return *punt
 }
 
 template <class T>
-typename Vettore<T>::T& Vettore<T>::Iteratore::operator->(){
+typename Vettore<T>::T& Vettore<T>::Iteratore::operator[](u_int ind) const {
 
 }
-
-template <class T>
-typename Vettore<T>::T& Vettore<T>::Iteratore::operator[](u_int ind){
-
-}
+*/
 
 template <class T>
 bool Vettore<T>::Iteratore::operator!=(const Iteratore& it) const{
-
+    return this!=it;
 }
 
 template <class T>
 bool Vettore<T>::Iteratore::operator==(const Iteratore& it) const{
-
+    return this==it;
 }
 
 
@@ -161,7 +163,7 @@ Vettore<T>::Iteratore& Vettore<T>::end()const{
 
 template <class T>
 u_int Vettore<T>::size() const{
-
+    return size;
 }
 
 template <class T>
@@ -176,7 +178,8 @@ void Vettore<T>::insert(Iteratore& it, T& val){
 
 template <class T>
 T& Vettore<T>::remove(Iteratore& it){
-
+    info=info+(it.index);
+   //da fare eprchè non so scalare i valori indietro di uno
 }
 
 template <class T>
@@ -186,6 +189,10 @@ T& Vettore<T>::remove2(T& value){
 
 template <class T>
 T& Vettore<T>::pop_back(){
+    T* ret = info + (size-1);
+    size--; //perchè tolgo un valore
+    //devo aggiornare anche il metodo end() visto che tolgo dalla fine?
+    return ret;
 
 }
 
@@ -195,12 +202,13 @@ bool Vettore<T>::empty(){ //true se il vettore è vuoto
 }
 
 template <class T>
-typename Vettore<T>::Vettore& merge(Vettore<T>::Vettore& vec){
-    T* aux= new T[v_size+vec.size];
-    for(int i = 0; i< v_size; i++) aux[i]=punt[i];
-    for(i=0; i<v.v_size; i++) aux[v_size+i]=v.punt[i];
+typename Vettore<T>::Vettore& merge(Vettore<T>& vec){
+    T* aux= new T[size+vec.size];
+    for(int i = 0; i< size; i++) aux[i]=punt[i];
+    for(i=0; i<vec.size; i++) aux[size+i]=vec.punt[i];
     delete [] punt;
     punt=aux;
+    return new Vettore(aux); //ha costruito sto aux, lo assegna ad un vettore, che ritorna
 }
 
 template <class T>
