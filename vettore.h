@@ -39,9 +39,9 @@ class Vettore{
             //overloading operatori
             Iteratore& operator++();
             Iteratore& operator--();
-            T& operator*() const;
-            T& operator->() const;
-            T& operator[](u_int ind) const;
+            T& operator*();
+            T& operator->();
+            T& operator[](u_int ind);
             bool operator!=(const Iteratore& it) const;
             bool operator==(const Iteratore& it) const;
         };

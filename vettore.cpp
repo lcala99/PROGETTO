@@ -69,19 +69,63 @@ Vettore<T>::T& remove(Iteratore& t){
 */
 
 //              METODI ITERATORE
-Vettore<T>::Iteratore::Iteratore(Vettore<T> v, u_int ind=0);
+template <class T>
+Vettore<T>::Iteratore::Iteratore(Vettore<T> v, u_int ind=0){
+
+}
+
 //Iteratore(T* p, u_int s, u_int c);
-static Vettore<T>:Iteratore Vettore<T>::Iteratore::clone(const Iteratore& it);
-Vettore<T>::Iteratore::Iteratore(Iteratore& it);
-Vettore<T>::Iteratore::~Iteratore();
+
+template <class T>
+static Vettore<T>::Iteratore Vettore<T>::Iteratore::clone(const Iteratore& it){
+
+}
+
+template <class T>
+Vettore<T>::Iteratore::Iteratore(Iteratore& it){
+
+}
+
+template <class T>
+Vettore<T>::Iteratore::~Iteratore(){
+
+}
+
 //overloading operatori
-Iteratore& operator++();
-Iteratore& operator--();
-T& operator*() const;
-T& operator->() const;
-T& operator[](u_int ind) const;
-bool operator!=(const Iteratore& it) const;
-bool operator==(const Iteratore& it) const;
+template <class T>
+typename Vettore<T>::Iteratore& Vettore<T>::Iteratore::operator++(){
+
+}
+
+template <class T>
+typename Vettore<T>::Iteratore& Vettore<T>::Iteratore::operator--(){
+
+}
+
+template <class T>
+typename Vettore<T>::T& Vettore<T>::Iteratore::operator*(){
+
+}
+
+template <class T>
+typename Vettore<T>::T& Vettore<T>::Iteratore::operator->(){
+
+}
+
+template <class T>
+typename Vettore<T>::T& Vettore<T>::Iteratore::operator[](u_int ind){
+
+}
+
+template <class T>
+bool Vettore<T>::Iteratore::operator!=(const Iteratore& it) const{
+
+}
+
+template <class T>
+bool Vettore<T>::Iteratore::operator==(const Iteratore& it) const{
+
+}
 
 
 
@@ -151,7 +195,7 @@ bool Vettore<T>::empty(){ //true se il vettore è vuoto
 }
 
 template <class T>
-Vettore<T>::Vettore& merge(Vettore<T>::Vettore& vec){
+typename Vettore<T>::Vettore& merge(Vettore<T>::Vettore& vec){
     T* aux= new T[v_size+vec.size];
     for(int i = 0; i< v_size; i++) aux[i]=punt[i];
     for(i=0; i<v.v_size; i++) aux[v_size+i]=v.punt[i];
