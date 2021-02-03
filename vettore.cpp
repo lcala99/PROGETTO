@@ -70,9 +70,7 @@ Vettore<T>::T& remove(Iteratore& t){
 
 //              METODI ITERATORE
 template <class T>
-Vettore<T>::Iteratore::Iteratore(Vettore<T> v, u_int ind=0){
-
-}
+Vettore<T>::Iteratore::Iteratore(Vettore<T>* v, u_int ind=0): punt(v), index(ind){}
 
 //Iteratore(T* p, u_int s, u_int c);
 
@@ -82,14 +80,8 @@ Vettore<T>::Iteratore Vettore<T>::Iteratore::clone(const Iteratore& it){
 }
 
 template <class T>
-Vettore<T>::Iteratore::Iteratore(Iteratore& it){
+Vettore<T>::Iteratore::Iteratore (const Iteratore& it): punt(it.punt), index(it.index) {}
 
-}
-
-template <class T>
-Vettore<T>::Iteratore::~Iteratore(){
-
-}
 
 //overloading operatori
 template <class T>
@@ -102,22 +94,23 @@ typename Vettore<T>::Iteratore& Vettore<T>::Iteratore::operator--(){
     if(punt) index--;
 }
 
-/*          BOH IN STI TRE MI DA ERRORE su operator nella firma
+/*          BOH IN STI TRE MI DA ERRORE su operator nella firma*/
+
 template <class T>
-typename Vettore<T>::T& Vettore<T>::Iteratore::operator*() const{
-    return *punt;
+T& Vettore<T>::Iteratore::operator*() const{
+    return punt->info;
 }
 
 template <class T>
-typename Vettore<T>::T& Vettore<T>::Iteratore::operator->() const {
-    return *punt
+T& Vettore<T>::Iteratore::operator->() const {
+    return punt*;
 }
 
 template <class T>
-typename Vettore<T>::T& Vettore<T>::Iteratore::operator[](u_int ind) const {
-
+T& Vettore<T>::Iteratore::operator[](u_int ind) const {
+    return (punt*)[ind]->info;
 }
-*/
+
 
 template <class T>
 bool Vettore<T>::Iteratore::operator!=(const Iteratore& it) const{
@@ -183,15 +176,17 @@ T& Vettore<T>::remove(Iteratore& it){
 }
 
 template <class T>
-T& Vettore<T>::remove2(T& value){
+T& Vettore<T>::remove(T& value){
 
 }
 
 template <class T>
 T& Vettore<T>::pop_back(){
+    if(past)
     T* ret = info + (size-1);
     size--; //perchè tolgo un valore
-    //devo aggiornare anche il metodo end() visto che tolgo dalla fine?
+    delete info + (size-1);
+
     return ret;
 
 }
@@ -213,5 +208,10 @@ typename Vettore<T>::Vettore& merge(Vettore<T>& vec){
 
 template <class T>
 bool Vettore<T>::operator==(Vettore& vec){
-
+    if(size != vec.getSize())return false;
+    bool control = true;
+    for( auto cont = begin(); cont != end() && control; cont++ ){
+        if( cont->info != vec->info ) control = false;
+    }
+    return control;
 }
