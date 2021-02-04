@@ -100,7 +100,17 @@ typename Vettore<T>::Iteratore& Vettore<T>::Iteratore::operator++(){
 // operator iteratore
 template <class T>
 typename Vettore<T>::Iteratore& Vettore<T>::Iteratore::operator--(){
-    if(punt) index--;
+      if(punt!= nullptr) {
+        if(!past_the_end) {
+            if(index-- != 0) index--;
+            else index=(*punt).getSize();
+        }
+        else{
+            index--;
+            past_the_end=false;
+        }
+      }
+      return *this;
 }
 
 // operator iteratore
