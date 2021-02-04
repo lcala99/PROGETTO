@@ -30,6 +30,7 @@ class Vettore{
             private:
                 Vettore<T>* const punt; 
                 u_int index;
+                bool past_the_end;
             public:
                 // iteratore CONSTUCTOR
                 Iteratore(Vettore<T>* v, u_int ind=0);
