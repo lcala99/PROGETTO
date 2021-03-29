@@ -18,15 +18,24 @@ Ingrediente Ingrediente::operator/(const u_int c)const{
     return  Ingrediente(nome,quantita/c,isLiquido);
 }
 
+Ingrediente Ingrediente::operator+(const Ingrediente& ing) const {
+    return Ingrediente(nome, quantita+ing.quantita, isLiquido)
+}
+
+Ingrediente Ingrediente::operator+(const u_int c)const{
+    return  Ingrediente(nome,quantita+c,isLiquido);
+}
 
 bool Ingrediente::operator==(Ingrediente& c) const{
     return nome==c.getNome() && quantita== c.getQuantita() && isLiquido==c.isLiquido;
 }
 
-string Ingrediente:: getNome()const{ return nome;}
+string Ingrediente:: getNome()const{return nome;}
 
 
 u_int Ingrediente::getQuantita()const{return quantita; }
 
 bool Ingrediente::IsLiquido()const{return isLiquido;}
+
+Ingrediente::operator u_int() const{return quantita;}
 

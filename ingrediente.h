@@ -3,6 +3,7 @@
 #include<iostream>
 typedef unsigned int u_int;
 using std::string;
+
 class Ingrediente
 {
 
@@ -27,6 +28,19 @@ public:
      *  @return Ingrediente
      * */
     Ingrediente operator/(const u_int c)const;
+
+    /*  @brief * somma la quantità dell'ingrediente
+    *  @param unsigned int: addizione
+    *  @return Ingrediente
+    * */
+    Ingrediente operator+(const u_int c) const;
+
+    /*  @brief * somma la quantità di due ingredienti
+    *  @param unsigned int: addizione tra ing
+    *  @return Ingrediente
+    * */
+    Ingrediente operator+(const Ingrediente& ing) const;
+
     bool operator==(Ingrediente& c) const;
 
     /*  @brief getNome restituisce il nome
@@ -44,7 +58,7 @@ public:
      * */
     bool IsLiquido()const;
 
-
+    operator u_int() const;
 
 };
 #endif // INGREDIENTE_H
