@@ -1,13 +1,12 @@
 #ifndef ALCOLICO_H
 #define ALCOLICO_H
 #include<iostream>
-#include<vettore.h>
-#include<ingrediente.h>
-#include<carrello.h>
+#include "vettore.h"
+#include "ingrediente.h"
+#include "carrello.h"
 typedef unsigned int u_int;
 
-class Alcolico : public Bevanda
-{
+class Alcolico : public Bevanda{
 private:
     u_int gradazione;
 public:

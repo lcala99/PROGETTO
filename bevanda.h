@@ -4,20 +4,22 @@
 #include<vettore.h>
 #include<ingrediente.h>
 #include<carrello.h>
+#include <string>
 typedef unsigned int u_int;
 using std::string;
 
-class Bevanda
-{
-private:
-    string nome;
-public:
-    Bevanda();
-    virtual Vettore<Ingrediente>calcolaIngredienti( u_int litri) const;
-    // virtual Vettore<Bevanda> crea(Carrello c /* ? Vettore<ingredienti> */);
-    virtual Vettore<Ingrediente>getIngredienti() const;
-    virtual u_int getGradazione()const;
-    virtual bool verificaIngredienti(Vettore<Ingrediente> ingredienti);
+class Bevanda{
+    private:
+        string nome;
+    public:
+        Bevanda();
+        Bevanda(string n);
+        Bevanda(const Bevanda& b);
+        virtual Vettore<Ingrediente> calcolaIngredienti(u_int litri) const;
+        // virtual Vettore<Bevanda> crea(Carrello c /* ? Vettore<ingredienti> */);
+        virtual Vettore<Ingrediente> getIngredienti() const;
+        virtual u_int getGradazione()const;
+        virtual bool verificaIngredienti(Vettore<Ingrediente> ingredienti);
 
 };
 
