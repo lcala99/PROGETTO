@@ -8,11 +8,12 @@ class DeepPtr {
     public:
         DeepPtr();
         DeepPtr(const T& punt);
-        DeepPtr(const DeepPtr& dptr) const; //costruttore di copia
+        DeepPtr(const DeepPtr& dptr); //costruttore di copia
         DeepPtr& operator=(const DeepPtr& dptr); //assegnazione
         ~DeepPtr();
         operator bool() const;
         T& operator*();
-        T& operator->();
-}
+        T* operator->();
+};
+
 #endif
