@@ -4,8 +4,7 @@ using namespace std;
 
 main(){
     char* a;
-    a[0]='a';
-    DeepPtr<char> c(*a);
-    DeepPtr<char> C(c);
-    cout << (*C) << endl;
+    DeepPtr<int> c(8);
+    DeepPtr<int> C(c);
+    cout << "ciao "<< *C  << "boh" << endl;
 }
