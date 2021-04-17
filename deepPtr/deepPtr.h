@@ -13,7 +13,7 @@ class DeepPtr {
         DeepPtr(const DeepPtr& dptr); //costruttore di copia
         DeepPtr& operator=(const DeepPtr& dptr); //assegnazione
         ~DeepPtr();
-        //operator bool() const;
+        operator bool() const;
         T& operator*();
         T* operator->();
         bool operator==(const DeepPtr& dptr) const;
@@ -21,9 +21,7 @@ class DeepPtr {
 };
 
 template <class T>
-DeepPtr<T>::DeepPtr() : ptr(nullptr) {
-
-}
+DeepPtr<T>::DeepPtr() : ptr(nullptr) {}
 
 
 template <class T>
@@ -35,15 +33,22 @@ DeepPtr<T>::DeepPtr(const T& punt){
 template <class T>
 DeepPtr<T>::DeepPtr(const DeepPtr& dptr){
     cout << "costruttore dptr" << endl;
-    delete[] ptr;
+    //delete ptr;
+    /*T* aux = ptr;
+    ptr= nullptr;
+    delete aux;*/
     ptr=new T(*(dptr.ptr));
-    cout << "costruttore dptr" << endl;
 }
 
 template <class T>
 typename DeepPtr<T>::DeepPtr& DeepPtr<T>::operator=(const DeepPtr& dptr){
-    if(this != &dptr){
-        delete[] ptr;
+    if(!ptr){
+        if(dptr){
+            ptr = new T(dptr.ptr);
+        }
+    }
+    if(dptr.ptr && this->ptr && this->ptr != &dptr){
+        delete ptr;
         ptr = new T(dptr.ptr);
     }
     return *this;
@@ -54,11 +59,11 @@ DeepPtr<T>::~DeepPtr(){
     delete[] ptr;
 }
 
-/*
+
 template <class T>
 DeepPtr<T>::operator bool() const{
-    return *this != nullptr;
-}*/
+    return this->ptr != nullptr;
+}
 
 template <class T>
 T& DeepPtr<T>::operator*(){
