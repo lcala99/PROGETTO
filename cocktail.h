@@ -26,4 +26,11 @@ public:
     virtual bool verificaIngredienti(Vettore<Ingrediente> ingredienti);
 };
 
+Cocktail::Cocktail(Vettore ing, u_int q){
+    for(auto it=ing.begin(); it!=ing.end(); it++){
+        ingredienti.push_back(*it);
+    }
+    quantita=q;
+}
+
 #endif // COCKTAIL_H
