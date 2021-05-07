@@ -20,4 +20,23 @@ class Analcolico : public Bevanda
         virtual bool verificaIngredienti(Vettore<Ingrediente> ingredienti);
 };
 
+Analcolico::Analcolico(): gradazione() { }
+
+Vettore<Ingrediente> Analcolico::calcolaIngredienti( u_int litri) const{
+    
+}
+
+Vettore<Ingrediente> Analcolico::getIngredienti() const{
+
+}
+
+u_int Analcolico::getGradazione() const{
+    return gradazione;
+}
+
+bool verificaIngredienti(Vettore<Ingrediente> ingredienti){
+
+}
+
 #endif // ANALCOLICO_H
+
