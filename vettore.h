@@ -1,6 +1,7 @@
+#include <iostream>
 #ifndef VETTORE_H
 #define VETTORE_H
-#include <iostream>
+
 using namespace std;
 
 typedef unsigned int u_int;
@@ -56,7 +57,7 @@ class Vettore{
         Vettore(T t);
         Vettore(u_int n, T t);
         Vettore(u_int n, T* t); //ok
-        Vettore(typename Vettore<T>::Iteratore first, typename Vettore<T>::Iteratore second );
+       //Vettore(typename Vettore<T>::Iteratore first, typename Vettore<T>::Iteratore second );
         Vettore(const Vettore& vec); //ok
 
         // Vettore OPERATOR overloading
@@ -96,10 +97,10 @@ typename Vettore<T>::Iteratore Vettore<T>::Iteratore::clone()const{
 }
 
 template <class T>
-Vettore<T>::Iteratore::Iteratore(const Iteratore& it):
+Vettore<T>::Iteratore::Iteratore(const Iteratore& it): 
     punt(it.punt), index(it.index) {}
 
-/*  non ciserve un costruttore solo con l'indice perchè dovremo comuqnue
+/*  non ciserve un costruttore solo con l'indice perchè dovremo comuqnue 
     sempre sepcificare anche il vettore al quale fa riferimento
 
 template <class T>
@@ -127,8 +128,8 @@ template <class T>
 typename Vettore<T>::Iteratore Vettore<T>::Iteratore::operator--(int){
       if(punt != nullptr) {
              index--;
-      }else{
-          index=(*punt).Size()--;
+      }else{ 
+          index=(*punt).Size()--; 
       }
       return *this;
 }
@@ -150,12 +151,12 @@ T* Vettore<T>::Iteratore::operator->() const {
 template <class T>
 typename Vettore<T>::Iteratore Vettore<T>::Iteratore::operator+(u_int const ind) const{
     return Iteratore(*punt, index+ind);
-}
+} 
 
 template <class T>
 typename Vettore<T>::Iteratore Vettore<T>::Iteratore::operator-(u_int const ind) const{
     return Iteratore(*punt, index-ind);
-}
+} 
 
 // operator iteratore
 template <class T>
@@ -197,25 +198,32 @@ Vettore<T>::Vettore(u_int n, T* t): info(new T[n]), size(n){
     }
 }
 
-
+/*
 template <class T>
-Vettore<T>::Vettore(typename Vettore<T>::Iteratore first, typename  Vettore<T>::Iteratore second){
+Vettore<T>::Vettore(typename Vettore<T>::Iteratore first, typename  Vettore<T>::Iteratore second){ 
     //non passati per riferimento costante perchè dobiamo fare ++ allinterno della funzione
     if((first.punt==second.punt) && first.index<=second.index){
         size=0;
         capacity=0;
         info=new T[second.index==first.index ? 1 : second.index-first.index];
+        cout << "primo if" << endl;
         if( first == second ){
+            cout << "seconod if if" << endl;
             push_back(*first);
+            cout << "pushback" << endl;
         }
         else{
+            cout << "prima di while" << endl;
             while(first!=second){
+                cout << *first << endl;
                 push_back(*first);
+                cout << "pushback" << endl;
                 first++;
             }
+            cout << "dopo while" << endl;
         }
     }
-}
+}*/
 
 template <class T> //ok
 Vettore<T>::Vettore(const Vettore& vec): size(vec.size){
@@ -271,7 +279,7 @@ void Vettore<T>::insert(Iteratore it, T val){
         info[i]=info[i-1];
     }
     info[it.index]=val;
-
+    
 }
 
 template <class T>
@@ -295,7 +303,7 @@ void Vettore<T>::remove(const T& value){
                     info[j-1] = info[j];
                 }
             }size--;
-
+            
         }
     }
 }
@@ -355,4 +363,5 @@ std::ostream& operator<<(std::ostream& os,const Vettore<T>& vec){
     }
     return os;
 }
-#endif // VETTORE_H
+
+#endif

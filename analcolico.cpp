@@ -1,6 +1,8 @@
 #include "analcolico.h"
 
-Analcolico::Analcolico() : gradazione(0){
+Analcolico::Analcolico()
+{
+
 }
 
 Vettore<Ingrediente> Analcolico::calcolaIngredienti( u_int litri) const{
@@ -15,6 +17,6 @@ u_int Analcolico::getGradazione() const{
     return gradazione;
 }
 
-bool Analcolico::verificaIngredienti(Vettore<Ingrediente> ingredienti){
+bool verificaIngredienti(Vettore<Ingrediente> ingredienti){
 
 }
