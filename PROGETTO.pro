@@ -23,8 +23,7 @@ SOURCES += \
     cocktail.cpp \
     ingrediente.cpp \
     iteratore.cpp \
-    main.cpp \
-    vettore.cpp
+    main.cpp
 
 HEADERS += \
     alcolico.h \
@@ -32,6 +31,7 @@ HEADERS += \
     bevanda.h \
     carrello.h \
     cocktail.h \
+    deepptr.h \
     ingrediente.h \
     vettore.h
 

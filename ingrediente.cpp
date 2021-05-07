@@ -19,7 +19,7 @@ Ingrediente Ingrediente::operator/(const u_int c)const{
 }
 
 Ingrediente Ingrediente::operator+(const Ingrediente& ing) const {
-    return Ingrediente(nome, quantita+ing.quantita, isLiquido)
+    return Ingrediente(nome, quantita+ing.quantita, isLiquido);
 }
 
 Ingrediente Ingrediente::operator+(const u_int c)const{
