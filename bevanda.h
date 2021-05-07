@@ -8,7 +8,6 @@
 typedef unsigned int u_int;
 using std::string;
 
-
 class Bevanda{
     private:
         string nome;
@@ -16,18 +15,12 @@ class Bevanda{
         Bevanda();
         Bevanda(string n);
         Bevanda(const Bevanda& b);
-        virtual Vettore<Ingrediente> calcolaIngredienti(u_int litri) const=0;
+        virtual Vettore<Ingrediente> calcolaIngredienti(u_int litri) const;
         // virtual Vettore<Bevanda> crea(Carrello c /* ? Vettore<ingredienti> */);
-        virtual Vettore<Ingrediente> getIngredienti() const=0;
-        virtual u_int getGradazione()const=0;
-        virtual bool verificaIngredienti(Vettore<Ingrediente> ingredienti)=0;
+        virtual Vettore<Ingrediente> getIngredienti() const;
+        virtual u_int getGradazione()const;
+        virtual bool verificaIngredienti(Vettore<Ingrediente> ingredienti);
 
 };
-
-Bevanda::Bevanda(){}
-
-Bevanda::Bevanda(string n):nome(n) { }
-
-Bevanda::Bevanda(const Bevanda& b): nome(b.nome) {}
 
 #endif // BEVANDA_H

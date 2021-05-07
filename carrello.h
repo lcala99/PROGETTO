@@ -35,8 +35,4 @@ public:
     bool verificaCocktail(Bevanda b);
 };
 
-Carrello::Carrello()
-{
-
-}
 #endif // CARRELLO_H
