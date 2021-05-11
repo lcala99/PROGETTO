@@ -23,7 +23,7 @@ public:
     //in teoria non serve perchè lo eredita da Alcolico
     //virtual u_int getGradazione() const;
     
-    virtual bool verificaIngredienti(Vettore<Ingrediente> ingredienti);
+    virtual bool verificaIngredienti(Vettore<Ingrediente> ingr);
 };
 
 #endif // COCKTAIL_H

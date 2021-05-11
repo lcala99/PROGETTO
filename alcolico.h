@@ -11,11 +11,9 @@ private:
     u_int gradazione;
 public:
     Alcolico(u_int g);
-    virtual Vettore<Ingrediente>calcolaIngredienti( u_int litri) const;
     // virtual Vettore<Bevanda> crea(Carrello c /* ? Vettore<ingredienti> */);
-    virtual Vettore<Ingrediente>getIngredienti() const;
     virtual u_int getGradazione()const;
-    virtual bool verificaIngredienti(Vettore<Ingrediente> ingredienti);
+    
 };
 
 #endif // ALCOLICO_H

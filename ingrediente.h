@@ -13,7 +13,7 @@ private:
     bool isLiquido;
 
 public:
-    Ingrediente(string n, u_int q, bool l);
+    Ingrediente(string n, u_int q=1, bool l=true);
     Ingrediente(const Ingrediente& ing);
     ~Ingrediente();
 

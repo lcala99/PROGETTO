@@ -9,7 +9,7 @@ typedef unsigned int u_int;
 using std::string;
 
 class Bevanda{
-    private:
+    protected:
         string nome;
     public:
         Bevanda();
@@ -18,7 +18,7 @@ class Bevanda{
         virtual Vettore<Ingrediente> calcolaIngredienti(u_int litri) const;
         // virtual Vettore<Bevanda> crea(Carrello c /* ? Vettore<ingredienti> */);
         virtual Vettore<Ingrediente> getIngredienti() const;
-        virtual u_int getGradazione()const;
+        virtual u_int getGradazione()const = 0;
         virtual bool verificaIngredienti(Vettore<Ingrediente> ingredienti);
 
 };
