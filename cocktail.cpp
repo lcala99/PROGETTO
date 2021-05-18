@@ -1,7 +1,7 @@
 #include <iostream>
 #include "cocktail.h"
 
-Cocktail::Cocktail(Vettore<Ingrediente> ing, u_int q){
+Cocktail::Cocktail(Vettore<Ingrediente> ing, u_int q) : ingredienti(ing), quantita(q){
     for(auto it=ing.begin(); it!=ing.end(); it++){
         ingredienti.push_back(*it);
     }
@@ -13,9 +13,9 @@ Vettore<Ingrediente> Cocktail::getIngredienti() const{
 
 bool Cocktail::verificaIngredienti(Vettore<Ingrediente> ingr){
     bool chk = false;
-    for(auto it = ingredienti.begin(); it < ingredienti.end(); it++){
+    for(auto it = ingredienti.begin(); it != ingredienti.end(); it++){
         chk = false;
-        for(auto iter = ingr.begin(); !chk && iter < ingr.end(); iter++){
+        for(auto iter = ingr.begin(); !chk && iter != ingr.end(); iter++){
             if( *it == *iter ) chk = true;
         }
     }

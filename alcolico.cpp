@@ -4,7 +4,7 @@
 
 Alcolico::Alcolico(u_int g):gradazione(g){}
 
-
+Alcolico::Alcolico() : gradazione(){}
 
 
 // virtual Vettore<Bevanda> crea(Carrello c /* ? Vettore<ingredienti> */);

@@ -4,6 +4,7 @@
 #include<vettore.h>
 #include<ingrediente.h>
 #include<bevanda.h>
+#include "deepptr.h"
 
 typedef unsigned int u_int;
 
@@ -13,7 +14,7 @@ private:
     class QuantitaBevanda{
     public:
         u_int quantita;
-        Bevanda bevanda;
+        DeepPtr<Bevanda> bevanda;
 
     };
 
@@ -28,11 +29,11 @@ public:
     Carrello();
     Vettore<Ingrediente> getIngredienti()const;
     u_int litriTot() const;
-    void aggiungiBevanda(Bevanda bev);
-    void removeBevanda(Bevanda bev);
+    void aggiungiBevanda(const Bevanda& bev);
+    void removeBevanda(const Bevanda& bev);
     u_int gradazioneMedia();
     Vettore<Bevanda> trovaBevandaIngredienti(Vettore<Bevanda> v);
-    bool verificaCocktail(Bevanda b);
+    bool verificaCocktail(Bevanda& b);
 };
 
 #endif // CARRELLO_H

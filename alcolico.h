@@ -10,6 +10,7 @@ class Alcolico : public Bevanda{
 private:
     u_int gradazione;
 public:
+    Alcolico();
     Alcolico(u_int g);
     // virtual Vettore<Bevanda> crea(Carrello c /* ? Vettore<ingredienti> */);
     virtual u_int getGradazione()const;

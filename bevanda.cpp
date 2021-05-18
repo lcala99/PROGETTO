@@ -22,8 +22,8 @@ Vettore<Ingrediente> Bevanda::calcolaIngredienti( u_int litri) const{
 
 bool Bevanda::verificaIngredienti(Vettore<Ingrediente> ingredienti){
     bool chk = false;
-    for(auto it = ingredienti.begin(); !chk && it<ingredienti.end(); it++){
-        if(*it==nome)chk=true;
+    for(auto it = ingredienti.begin(); !chk && it != ingredienti.end(); it++){
+        if((*it).getNome()==nome) chk=true;
     }
-    return chk;
+    return chk ;
 }
