@@ -1,0 +1,14 @@
+#ifndef PRODOTTO_H
+#define PRODOTTO_H
+#include <String>
+using namespace std;
+
+class Prodotto
+{
+protected:
+    std::string nome;
+public:
+    Prodotto(string nome);
+};
+
+#endif // PRODOTTO_H

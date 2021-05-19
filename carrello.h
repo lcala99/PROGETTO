@@ -14,7 +14,7 @@ private:
     class QuantitaBevanda{
     public:
         u_int quantita;
-        DeepPtr<Bevanda> bevanda;
+        Vettore<DeepPtr<Bevanda>> bevanda;
 
     };
 

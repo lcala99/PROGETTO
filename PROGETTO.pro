@@ -16,25 +16,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    alcolico.cpp \
-    analcolico.cpp \
     bevanda.cpp \
     carrello.cpp \
+    cibo.cpp \
     cocktail.cpp \
     ingrediente.cpp \
     iteratore.cpp \
     main.cpp \
-    mocktail.cpp
+    prodotto.cpp
 
 HEADERS += \
-    alcolico.h \
-    analcolico.h \
     bevanda.h \
     carrello.h \
+    cibo.h \
     cocktail.h \
     deepptr.h \
     ingrediente.h \
-    mocktail.h \
+    prodotto.h \
     vettore.h
 
 FORMS += \
