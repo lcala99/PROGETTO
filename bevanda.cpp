@@ -1,15 +1,14 @@
 #include "bevanda.h"
 
-Bevanda::Bevanda(){}
+Bevanda::Bevanda(string Nome, u_int Gradazione):Prodotto(Nome), gradazione(Gradazione){}
 
-Bevanda::Bevanda(string n){
-    nome=n;
+Bevanda::Bevanda(const Bevanda& b):Prodotto(b.nome){
+    gradazione=b.gradazione;
 }
 
-Bevanda::Bevanda(const Bevanda& b){
-    nome=b.nome;
+u_int Bevanda::getGradazione() const{
+    return gradazione;
 }
-
 
 Vettore<Ingrediente> Bevanda::getIngredienti() const{
     return Vettore<Ingrediente>(Ingrediente(nome));
@@ -27,3 +26,4 @@ bool Bevanda::verificaIngredienti(Vettore<Ingrediente> ingredienti){
     }
     return chk ;
 }
+jgn

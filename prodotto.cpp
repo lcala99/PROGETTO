@@ -1,6 +1,3 @@
 #include "prodotto.h"
 
-Prodotto::Prodotto()
-{
-
-}
+Prodotto::Prodotto(string Nome): nome(Nome){}

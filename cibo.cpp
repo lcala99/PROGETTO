@@ -1,6 +1,5 @@
 #include "cibo.h"
+#include "ingrediente.h"
+#include "vettore.h"
 
-cibo::cibo()
-{
-
-}
+Cibo::Cibo(string nome, Vettore<Ingrediente> Comp):Prodotto(nome), componenti(Comp){}

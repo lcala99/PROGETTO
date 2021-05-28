@@ -7,8 +7,6 @@
 typedef unsigned int u_int;
 
 class Alcolico : public Bevanda{
-private:
-    u_int gradazione;
 public:
     Alcolico();
     Alcolico(u_int g);

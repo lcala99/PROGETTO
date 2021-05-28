@@ -9,8 +9,6 @@ typedef unsigned int u_int;
 
 class Analcolico : public Bevanda
 {
-    private:
-        const u_int gradazione;
     public:
         Analcolico();
         

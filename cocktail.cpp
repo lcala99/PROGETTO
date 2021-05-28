@@ -1,12 +1,15 @@
 #include <iostream>
 #include "cocktail.h"
 
-Cocktail::Cocktail(Vettore<Ingrediente> ing, u_int q) : ingredienti(ing), quantita(q){
+Cocktail::Cocktail(string Nome, Vettore<Ingrediente> ing, u_int q, u_int Gradazione) :
+    Bevanda(Nome,Gradazione), ingredienti(ing), quantita(q)
+{
     for(auto it=ing.begin(); it!=ing.end(); it++){
         ingredienti.push_back(*it);
     }
     quantita=q;
 }
+
 Vettore<Ingrediente> Cocktail::getIngredienti() const{
     return ingredienti;
 }
